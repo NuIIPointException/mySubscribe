@@ -1,4 +1,5 @@
 package com.lwf.mySubscribe.controller;
+import com.lwf.mySubscribe.util.JedisUtil;
 import com.lwf.mySubscribe.util.SubscribeUtil;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +27,7 @@ public class MainController {
             SubscribeUtil.addAddress(url);
         }
         String mySubscribe = SubscribeUtil.updateMySubscribe();
+        JedisUtil.updateAddrMap();
         return mySubscribe;
     }
 
